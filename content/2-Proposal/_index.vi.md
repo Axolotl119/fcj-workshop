@@ -52,7 +52,7 @@ Mục tiêu dự án:
 
 #### 3.1. Sơ đồ kiến trúc
 
-![Sơ đồ kiến trúc](https://axolotl119.github.io/fcj-workshop/images/2-Proposal/sơ dồ kiến trúc.png)
+![Sơ đồ kiến trúc](https://axolotl119.github.io/fcj-workshop/images/2-Proposal/architecture.png)
 
 Hệ thống được tổ chức thành các nhóm dịch vụ logic trong cùng một AWS Region:
 

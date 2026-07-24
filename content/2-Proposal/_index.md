@@ -52,7 +52,7 @@ Project goals:
 
 #### 3.1. Architecture Diagram
 
-![Architecture Diagram](https://axolotl119.github.io/fcj-workshop/images/2-Proposal/sơ dồ kiến trúc.png)
+![Architecture Diagram](https://axolotl119.github.io/fcj-workshop/images/2-Proposal/architecture.png)
 
 The system is organized into logical groups of services within a single AWS Region:
 
