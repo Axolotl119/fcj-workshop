@@ -1,3 +1,11 @@
+---
+title: "Proposal"
+date: 2026-07-09
+weight: 2
+chapter: false
+pre: " <b> 2. </b> "
+---
+
 # SYSTEM ARCHITECTURE PROPOSAL
 
 ## PROJECT: MUSIC INSTRUMENT STORE — AWS SERVERLESS E-COMMERCE PLATFORM
