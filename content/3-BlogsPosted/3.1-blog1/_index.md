@@ -212,7 +212,7 @@ COMMIT;
 
 Below is a snapshot of the Amazon RDS Management Console after successfully provisioning a `db.t4g.micro` instance ready for incoming connections:
 
-![RDS Console Screenshot](/images/3-Blog/blog1-rds.png)
+![RDS Console Screenshot](/images/3-BlogsPosted/blog1-rds.png)
 *Figure 1: Amazon RDS Console showing a running instance ready for database connection.*
 
 ---
