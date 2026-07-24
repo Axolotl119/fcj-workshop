@@ -159,7 +159,7 @@ app.get('/products/:id', async (req, res) => {
 
 Dưới đây là bảng điều khiển Amazon ElastiCache Console hiển thị cụm Redis Instance `cache.t4g.micro` đang hoạt động và sẵn sàng xử lý yêu cầu caching:
 
-![ElastiCache Console Screenshot](/images/3-BlogsPosted/blog2-redis.png)
+![ElastiCache Console Screenshot](/images/3-BlogsPosted/blog2.png)
 *Hình 1: Cấu hình cụm Amazon ElastiCache Redis sẵn sàng vận hành.*
 
 ---
