@@ -212,7 +212,7 @@ COMMIT;
 
 Dưới đây là hình ảnh giao diện quản lý Amazon RDS Instance sau khi khởi tạo thành công với cấu hình `db.t4g.micro` và sẵn sàng nhận kết nối:
 
-![Ảnh chụp RDS console](/images/3-BlogsPosted/blog1-rds.png)
+![Ảnh chụp RDS console](https://axolotl119.github.io/fcj-workshop/images/3-BlogsPosted/blog1-rds.png)
 *Hình 1: Cấu hình bảng điều khiển Amazon RDS Instance sẵn sàng kết nối.*
 
 ---

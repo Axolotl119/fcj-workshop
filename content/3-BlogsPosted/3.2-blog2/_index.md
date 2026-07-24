@@ -159,7 +159,7 @@ To measure the impact of caching, load tests were executed using **k6** simulati
 
 Below is a screenshot of the Amazon ElastiCache Management Console showing an active `cache.t4g.micro` Redis cluster ready to process caching commands:
 
-![ElastiCache Console Screenshot](/images/3-BlogsPosted/blog2.png)
+![ElastiCache Console Screenshot](/images/3-BlogsPosted/blog2-redis.png)
 *Figure 1: Amazon ElastiCache Redis cluster dashboard ready for operation.*
 
 ---
