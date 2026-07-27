@@ -1,3 +1,4 @@
+Markdown
 ---
 title: "Event 2: AWS Enterprise Cloud Architectures and Industry Application"
 date: 2026-07-09
@@ -12,7 +13,17 @@ pre: " <b> 4.2. </b> "
 * **Date:** July 03 - 04, 2026[cite: 1]
 * **Format:** Offline (Hosted at the AWS Vietnam Office)[cite: 1]
 * **Organizers:** AWS Study Group / First Cloud AI Journey (FCJ) in collaboration with Swinburne Vietnam Study Tour (3rd edition)[cite: 1]
-* **Recording:** [youtube.com/live/FKtMkUqyny4](https://youtube.com/live/FKtMkUqyny4)[cite: 1]
+* **Event Recording:**
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/FKtMkUqyny4" 
+  title="AWS Enterprise Cloud Architectures Workshop" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen>
+</iframe>
 
 ---
 
@@ -61,4 +72,4 @@ The workshop spanned over 3 hours and featured 4 main keynotes from industry spe
 
 ---
 
-![AWS Workshop Photo](/images/4-Event/event2.png)
+![AWS Workshop Photo](/images/4-EventParticipated/4.2-event2/4-7-2026.png)

@@ -12,10 +12,19 @@ pre: " <b> 4.2. </b> "
 * **Thời gian:** 03 - 04/07/2026[cite: 1]
 * **Hình thức:** Offline (Tổ chức tại văn phòng AWS Việt Nam)[cite: 1]
 * **Đơn vị tổ chức:** AWS Study Group / First Cloud AI Journey (FCJ) phối hợp cùng Swinburne Việt Nam Study Tour (lần 3)[cite: 1]
-* **Video xem lại:** [youtube.com/live/FKtMkUqyny4](https://youtube.com/live/FKtMkUqyny4)[cite: 1]
+* **Video xem lại:**
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/FKtMkUqyny4" 
+  title="AWS Enterprise Cloud Architectures Workshop" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen>
+</iframe>
 
 ---
-
 ### Tổng quan chương trình
 Buổi workshop kéo dài hơn 3 tiếng gồm 4 phần chia sẻ chuyên sâu từ các chuyên gia Cloud hàng đầu[cite: 1]:
 * **Anh Nguyễn Gia Hưng** (Head of Solutions Architect, AWS Việt Nam; Founder FCJ): Xu hướng nghề nghiệp & thị trường Cloud[cite: 1].
@@ -61,4 +70,4 @@ Buổi workshop kéo dài hơn 3 tiếng gồm 4 phần chia sẻ chuyên sâu t
 
 ---
 
-![Hình ảnh tham dự workshop AWS](/images/4-Event/event2.png)
+![AWS Workshop Photo](/images/4-EventParticipated/4.2-event2/4-7-2026.png)
