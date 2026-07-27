@@ -80,8 +80,6 @@ orderDlqAlarm.addAlarmAction(new cw_actions.SnsAction(alarmsTopic));
 
 Similar alarms cover API Gateway 5XX errors and the error metric of every critical Lambda (order processing, checkout, payment webhook).
 
-![CloudWatch alarms](/images/5-Workshop/5.6-alarms.png)
-<!-- TODO: chèn ảnh danh sách alarm CloudWatch -->
 
 {{% notice tip %}}
 Replace `admin@example.com` with your real email, deploy, and **confirm the SNS subscription** from your inbox — otherwise alarms fire silently.

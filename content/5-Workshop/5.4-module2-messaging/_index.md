@@ -87,5 +87,3 @@ try {
 
 This logic is covered by **vitest** unit tests using `aws-sdk-client-mock`.
 
-![SQS queues in console](/images/5-Workshop/5.4-sqs.png)
-<!-- TODO: chèn ảnh 6 queue (3 queue + 3 DLQ) trên SQS console -->

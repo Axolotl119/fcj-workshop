@@ -106,15 +106,9 @@ Sau đó vào AWS console kiểm tra:
 2. **S3** — bucket sản phẩm tồn tại với CORS đã cấu hình.
 3. **AWS Backup → Backup plans** — `MusicStoreBackupPlan` với 2 rule.
 
-![Bảng DynamoDB trên console](/images/5-Workshop/5.3-dynamodb.png)
-<!-- TODO: chèn ảnh chụp bảng DynamoDB (tab Indexes + Backups) -->
-
 ### 5. Seed catalog
 
 ```bash
 cd ../scripts
 node seed-products.mjs   # nạp 15 nhạc cụ mẫu vào bảng
 ```
-
-![Dữ liệu sau khi seed](/images/5-Workshop/5.3-seed.png)
-<!-- TODO: chèn ảnh Explore items sau khi seed -->

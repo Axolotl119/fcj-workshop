@@ -84,8 +84,6 @@ eventBus.grantPutEventsTo(paymentWebhookLambda);
 eventBus.grantPutEventsTo(campaignApiLambda);
 ```
 
-![EventBridge rules](/images/5-Workshop/5.5-eventbridge.png)
-<!-- TODO: chèn ảnh 3 rule trên EventBridge console -->
 
 {{% notice info %}}
 **Why EventBridge instead of calling the notification Lambda directly?** Tomorrow we might add an analytics consumer or a Slack alert. With EventBridge we just add a rule — the order processor never changes. This is the *open/closed principle* applied to architecture.

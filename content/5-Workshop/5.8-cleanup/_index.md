@@ -40,8 +40,6 @@ aws s3 ls
 
 Also check **Billing → Cost Explorer** the next day to confirm the daily cost dropped to ~$0.
 
-![Empty resources](/images/5-Workshop/5.8-cleanup.png)
-<!-- TODO: chèn ảnh xác nhận tài nguyên đã xóa -->
 
 {{% notice warning %}}
 If you deployed the Cognito User Pool or bootstrapped CDK, the `CDKToolkit` stack and its S3 staging bucket remain. Keep them if you plan to deploy again; otherwise delete the CloudFormation stack `CDKToolkit` and empty/delete the `cdk-*-assets` bucket.

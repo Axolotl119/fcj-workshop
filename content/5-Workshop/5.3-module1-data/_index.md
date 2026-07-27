@@ -106,9 +106,6 @@ Then in the AWS console verify:
 2. **S3** — the products bucket exists with CORS configured.
 3. **AWS Backup → Backup plans** — `MusicStoreBackupPlan` with 2 rules.
 
-![DynamoDB table console](/images/5-Workshop/5.3-dynamodb.png)
-<!-- TODO: chèn ảnh chụp bảng DynamoDB (tab Indexes + Backups) -->
-
 ### 5. Seed the catalog
 
 ```bash
@@ -116,5 +113,3 @@ cd ../scripts
 node seed-products.mjs   # loads 15 sample instruments into the table
 ```
 
-![Seeded items](/images/5-Workshop/5.3-seed.png)
-<!-- TODO: chèn ảnh Explore items sau khi seed -->

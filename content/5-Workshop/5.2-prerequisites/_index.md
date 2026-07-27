@@ -49,9 +49,6 @@ npm install
 npx cdk bootstrap
 ```
 
-![cdk bootstrap output](/images/5-Workshop/5.2-bootstrap.png)
-<!-- TODO: chèn ảnh chụp kết quả cdk bootstrap -->
-
 ### 4. Verify
 
 ```bash

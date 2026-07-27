@@ -80,8 +80,6 @@ orderDlqAlarm.addAlarmAction(new cw_actions.SnsAction(alarmsTopic));
 
 Các alarm tương tự phủ lỗi 5XX của API Gateway và metric lỗi của mọi Lambda quan trọng (order processing, checkout, payment webhook).
 
-![Alarm CloudWatch](/images/5-Workshop/5.6-alarms.png)
-<!-- TODO: chèn ảnh danh sách alarm CloudWatch -->
 
 {{% notice tip %}}
 Đổi `admin@example.com` thành email thật của bạn, deploy, rồi **xác nhận subscription SNS** trong hộp thư — nếu không alarm sẽ kêu trong im lặng.

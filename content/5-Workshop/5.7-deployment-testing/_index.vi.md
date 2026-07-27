@@ -23,9 +23,6 @@ MusicStoreBackendStack-dev.OrderQueueUrl = https://sqs.us-east-1.amazonaws.com/.
 MusicStoreDatabaseStack-dev.DynamoDBTableName = MusicStoreDatabaseStack-dev-MusicStoreMainTable...
 ```
 
-![Output cdk deploy](/images/5-Workshop/5.7-deploy.png)
-<!-- TODO: chèn ảnh output cdk deploy -->
-
 ### 2. Test 1 — đọc catalog
 
 ```bash
@@ -51,8 +48,6 @@ API trả về ngay với mã đơn. Giờ lần theo message qua hệ thống:
 3. **DynamoDB → Explore items**: xuất hiện item `ORDER#<id>` mới.
 4. **EventBridge → MusicStoreEventBus → Monitoring**: một sự kiện `OrderPlaced` khớp rule.
 
-![Item đơn hàng trong DynamoDB](/images/5-Workshop/5.7-order-item.png)
-<!-- TODO: chèn ảnh item ORDER# trong DynamoDB -->
 
 ### 4. Test 3 — chứng minh DLQ hoạt động (tiêm lỗi)
 
@@ -66,8 +61,6 @@ aws sqs send-message \
 
 Processor parse lỗi; SQS gửi lại 3 lần; sau đó message xuất hiện trong **MusicStoreOrderDLQ** và **OrderDLQAlarm** chuyển sang `In alarm`, gửi email SNS.
 
-![Alarm DLQ kích hoạt](/images/5-Workshop/5.7-dlq-alarm.png)
-<!-- TODO: chèn ảnh alarm chuyển trạng thái In alarm -->
 
 ### 5. Test 4 — unit test idempotency
 

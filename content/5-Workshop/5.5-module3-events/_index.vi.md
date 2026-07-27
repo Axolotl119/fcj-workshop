@@ -84,8 +84,6 @@ eventBus.grantPutEventsTo(paymentWebhookLambda);
 eventBus.grantPutEventsTo(campaignApiLambda);
 ```
 
-![Rule EventBridge](/images/5-Workshop/5.5-eventbridge.png)
-<!-- TODO: chèn ảnh 3 rule trên EventBridge console -->
 
 {{% notice info %}}
 **Vì sao dùng EventBridge thay vì gọi thẳng Lambda notification?** Ngày mai nhóm có thể thêm consumer analytics hay cảnh báo Slack. Với EventBridge chỉ cần thêm rule — order processor không phải sửa. Đây là *nguyên tắc open/closed* áp vào kiến trúc.

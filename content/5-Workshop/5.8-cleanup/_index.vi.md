@@ -40,8 +40,6 @@ aws s3 ls
 
 Hôm sau kiểm tra thêm **Billing → Cost Explorer** để xác nhận chi phí ngày về ~0$.
 
-![Tài nguyên đã trống](/images/5-Workshop/5.8-cleanup.png)
-<!-- TODO: chèn ảnh xác nhận tài nguyên đã xóa -->
 
 {{% notice warning %}}
 Nếu bạn đã bootstrap CDK, stack `CDKToolkit` và S3 bucket staging vẫn còn. Giữ lại nếu còn định deploy tiếp; không thì xóa CloudFormation stack `CDKToolkit` và dọn/xóa bucket `cdk-*-assets`.
