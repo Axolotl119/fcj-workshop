@@ -12,7 +12,7 @@ pre: " <b> 5.1. </b> "
 
 Backend của Music Instrument Store là kiến trúc **serverless, hướng sự kiện**. Không có server nào phải vá lỗi hay scale: mọi thành phần đều trả tiền theo mức dùng.
 
-![Sơ đồ kiến trúc](/images/5-Workshop/architecture.png)
+![Sơ đồ kiến trúc](images/2-Proposal/architecture.png)
 <!-- TODO: chèn sơ đồ kiến trúc tổng thể -->
 
 **Luồng đơn hàng (trọng tâm của workshop):**

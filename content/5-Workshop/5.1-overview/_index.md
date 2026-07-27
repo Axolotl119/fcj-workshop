@@ -12,7 +12,7 @@ pre: " <b> 5.1. </b> "
 
 The Music Instrument Store backend is a **serverless, event-driven architecture**. There are no servers to patch or scale: every component is pay-per-use.
 
-![Architecture Diagram](/images/5-Workshop/architecture.png)
+![Architecture Diagram](images/2-Proposal/architecture.png)
 <!-- TODO: chèn sơ đồ kiến trúc tổng thể -->
 
 **Order flow (the core of this workshop):**
