@@ -8,10 +8,10 @@ pre: " <b> 4.2. </b> "
 
 # AWS: Enterprise Cloud Architectures and Industry Application
 
-* **Tên sự kiện:** AWS Enterprise Cloud Architectures and Industry Application (featuring Cloud Kinetics & Renova Cloud)[cite: 1]
-* **Thời gian:** 03 - 04/07/2026[cite: 1]
-* **Hình thức:** Offline (Tổ chức tại văn phòng AWS Việt Nam)[cite: 1]
-* **Đơn vị tổ chức:** AWS Study Group / First Cloud AI Journey (FCJ) phối hợp cùng Swinburne Việt Nam Study Tour (lần 3)[cite: 1]
+* **Tên sự kiện:** AWS Enterprise Cloud Architectures and Industry Application (featuring Cloud Kinetics & Renova Cloud)
+* **Thời gian:** 04/07/2026
+* **Hình thức:** Offline (Tổ chức tại văn phòng AWS Việt Nam)
+* **Đơn vị tổ chức:** AWS Study Group / First Cloud AI Journey (FCJ) phối hợp cùng Swinburne Việt Nam Study Tour (lần 3)
 * **Video xem lại:**
 
 <iframe 
@@ -70,4 +70,4 @@ Buổi workshop kéo dài hơn 3 tiếng gồm 4 phần chia sẻ chuyên sâu t
 
 ---
 
-![AWS Workshop Photo](/images/4-EventParticipated/4.2-event2/4-7-2026.png)
+![Hình ảnh tham dự workshop AWS](/images/4-EventParticipated/4.2-event2/4-7-2026.png)

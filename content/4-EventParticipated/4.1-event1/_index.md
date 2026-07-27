@@ -9,8 +9,8 @@ pre: " <b> 4.1. </b> "
 # FC Community Day
 
 * **Event Name:** FC Community Day - GenAI, Cloud Infrastructure & Voice AI
-* **Date:** 04/07/2026
-* **Format:** Offline (26th & 36th Floor) & Online (YouTube Livestream)
+* **Date:** 27/06/2026
+* **Format:** Offline (26th Floor) & Online (YouTube Livestream)
 * **Event Recording:**
 
 <iframe 

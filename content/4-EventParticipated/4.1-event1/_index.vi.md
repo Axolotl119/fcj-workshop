@@ -9,8 +9,8 @@ pre: " <b> 4.1. </b> "
 # FC Community Day
 
 * **Tên sự kiện:** FC Community Day - Ứng dụng AI Agent, Cloud Infrastructure & Voice AI
-* **Thời gian:** 04/07/2026
-* **Hình thức:** Offline (Tầng 26 & 36) & Online (Livestream YouTube)
+* **Thời gian:** 27/06/2026
+* **Hình thức:** Offline (Tầng 26) & Online (Livestream YouTube)
 * **Video xem lại:**
 
 <iframe 

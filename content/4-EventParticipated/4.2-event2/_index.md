@@ -8,10 +8,10 @@ pre: " <b> 4.2. </b> "
 
 # AWS: Enterprise Cloud Architectures and Industry Application
 
-* **Event Name:** AWS Enterprise Cloud Architectures and Industry Application (featuring Cloud Kinetics & Renova Cloud)[cite: 1]
-* **Date:** July 03 - 04, 2026[cite: 1]
-* **Format:** Offline (Hosted at the AWS Vietnam Office)[cite: 1]
-* **Organizers:** AWS Study Group / First Cloud AI Journey (FCJ) in collaboration with Swinburne Vietnam Study Tour (3rd edition)[cite: 1]
+* **Event Name:** AWS Enterprise Cloud Architectures and Industry Application (featuring Cloud Kinetics & Renova Cloud)
+* **Date:** July 4, 2026
+* **Format:** Offline (Hosted at the AWS Vietnam Office)
+* **Organizers:** AWS Study Group / First Cloud AI Journey (FCJ) in collaboration with Swinburne Vietnam Study Tour (3rd edition)
 * **Event Recording:**
 
 <iframe 
