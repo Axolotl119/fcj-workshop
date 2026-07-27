@@ -89,4 +89,4 @@ pre: " <b> 4.3. </b> "
 
 ---
 
-![Hình ảnh Hackathon](/images/4-Event/event3.png)
+![Hình ảnh](/images/4-EventParticipated/4.3-event3/25-7-2026.png)
