@@ -13,7 +13,7 @@ Trong chuỗi bài viết chia sẻ về quá trình xây dựng hạ tầng cho
 1. **Bài toán khả năng mở rộng (Scalability):** Cơ sở dữ liệu quan hệ truyền thống bắt đầu gặp hiện tượng nghẽn cổ chai (bottleneck) khi số lượng truy vấn ghi và đọc các bảng phụ trợ (logs, lịch sử đơn hàng, giỏ hàng linh hoạt) tăng nhanh.
 2. **Bài toán xử lý bất đồng bộ (Asynchronous Processing):** Khi khách hàng bấm "Đặt hàng", hệ thống cần thực hiện hàng loạt tác vụ liên quan: trừ kho, tạo hóa đơn, gửi email xác nhận, đẩy thông báo qua webhook, và phân tích dữ liệu. Nếu bắt người dùng chờ tất cả các bước này hoàn tất trong 1 HTTP Request, thời gian phản hồi (latency) sẽ cực kỳ cao và nguy cơ thất bại giao dịch là rất lớn.
 
-Để giải quyết triệt để hai bài toán này, chúng tôi đã đưa vào sử dụng **Amazon DynamoDB** (theo mô hình *Single-Table Design*) và **Amazon SQS (Simple Queue Service)** làm xương sống cho việc truyền nhận tin nhắn tin cậy.
+Để giải quyết triệt me hai bài toán này, chúng tôi đã đưa vào sử dụng **Amazon DynamoDB** (theo mô hình *Single-Table Design*) và **Amazon SQS (Simple Queue Service)** làm xương sống cho việc truyền nhận tin nhắn tin cậy.
 
 ---
 
@@ -74,7 +74,7 @@ export const getOrderDetails = async (orderId) => {
 
   try {
     const data = await docClient.send(new QueryCommand(params));
-    
+
     // Kết quả thu được bao gồm cả thông tin chung Đơn hàng (SK=METADATA)
     // và các sản phẩm nhạc cụ thuộc đơn hàng (SK=ITEM#...)
     console.log("Order Data & Line Items:", data.Items);
@@ -84,35 +84,39 @@ export const getOrderDetails = async (orderId) => {
     throw err;
   }
 };
+```
 
 ### 3. Xử lý Tin nhắn Bất đồng bộ & Tin cậy với Amazon SQS
-Trong quy trình xử lý đơn hàng nhạc cụ, khi số lượng người mua cùng lúc tăng cao (ví dụ: đợt Flash Sale đàn Guitar Acoustic), việc đồng bộ tất cả các bước sẽ khiến hệ thống bị treo hoặc quá tải. Để giải quyết, Amazon SQS đóng vai trò là một "vùng đệm" (buffer) tin cậy.
 
-Hình 3: Quy trình xử lý Message qua SQS Queue, Lambda Worker và cơ chế Dead Letter Queue (DLQ).
+Trong quy trình xử lý đơn hàng nhạc cụ, khi số lượng người mua cùng lúc tăng cao (ví dụ: đợt Flash Sale đàn Guitar Acoustic), việc đồng bộ tất cả các bước sẽ khiến hệ thống bị treo hoặc quá tải. Để giải quyết, **Amazon SQS** đóng vai trò là một "vùng đệm" (buffer) tin cậy.
+
+![Luồng nhắn tin SQS và Dead Letter Queue](images/blog3-sqs-dlq-workflow.png)
+
+*Hình 3: Quy trình xử lý Message qua SQS Queue, Lambda Worker và cơ chế Dead Letter Queue (DLQ).*
 
 #### 3.1. Thiết kế Hàng đợi SQS FIFO và Standard Queue
+
 Hệ thống được chia thành 2 loại hàng đợi:
 
-Order Processing Queue (SQS FIFO Queue): Đảm bảo thứ tự ưu tiên xử lý chính xác tuyệt đối (First-In, First-Out) và tự động lọc trùng lặp (MessageDeduplicationId), tránh việc một đơn hàng bị xử lý 2 lần.
-
-Notification & Analytics Queue (SQS Standard Queue): Tối ưu cho tốc độ và khả năng throughput cao để gửi email thông báo và đẩy log về hệ thống phân tích.
+* **Order Processing Queue (SQS FIFO Queue):** Đảm bảo thứ tự ưu tiên xử lý chính xác tuyệt đối (First-In, First-Out) và tự động lọc trùng lặp (`MessageDeduplicationId`), tránh việc một đơn hàng bị xử lý 2 lần. Lưu ý: tên queue FIFO bắt buộc có hậu tố `.fifo` (ví dụ `OrderProcessingQueue.fifo`).
+* **Notification & Analytics Queue (SQS Standard Queue):** Tối ưu cho tốc độ và khả năng throughput cao để gửi email thông báo và đẩy log về hệ thống phân tích.
 
 #### 3.2. Cơ chế Dead Letter Queue (DLQ) & Retry Policy
-Để đảm bảo không bao giờ bị mất dữ liệu đơn hàng ngay cả khi có sự cố kỹ thuật (ví dụ: Service gửi Email bị sập tạm thời hoặc Third-party Payment Gateway bị timeout):
 
-Visibility Timeout: Được cấu hình gấp 6 lần thời gian thực thi trung bình của Lambda Worker (ví dụ: 30 giây).
-
-Max Receive Count: Cấu hình bằng 3. Nếu một Message bị xử lý thất bại 3 lần liên tiếp, SQS sẽ tự động chuyển Message đó sang Dead Letter Queue (DLQ).
-
-Alerting & Redrive: Đặt cảnh báo Amazon CloudWatch Alarm khi số lượng Message trong DLQ > 0 để đội ngũ Engineer kịp thời can thiệp và kích hoạt quy trình Redrive (đẩy lại Message xử lý sau khi fix bug).
+* **Visibility Timeout:** Được cấu hình gấp 6 lần **giá trị timeout đã cấu hình cho Lambda Worker** (ví dụ Lambda timeout = 30 giây → Visibility Timeout ≈ 180 giây).
+* **Max Receive Count:** Cấu hình bằng `3`. Nếu một Message bị xử lý thất bại 3 lần liên tiếp, SQS sẽ tự động chuyển Message đó sang **Dead Letter Queue (DLQ)**.
+* **Alerting & Redrive:** Đặt cảnh báo Amazon CloudWatch Alarm khi số lượng Message trong DLQ > 0 để đội ngũ Engineer kịp thời can thiệp và kích hoạt quy trình Redrive.
 
 #### 3.3. Đoạn mã minh họa đẩy Message vào SQS Queue
 
+```python
 import json
 import boto3
 import os
 
 sqs = boto3.client('sqs')
+# Lưu ý: QUEUE_URL này phải trỏ đến một FIFO Queue (đuôi .fifo)
+# vì MessageGroupId và MessageDeduplicationId chỉ hợp lệ với FIFO Queue
 QUEUE_URL = os.environ.get('ORDER_SQS_QUEUE_URL')
 
 def send_order_event(order_data):
@@ -128,26 +132,30 @@ def send_order_event(order_data):
     except Exception as e:
         print(f"Failed to send message to SQS: {str(e)}")
         raise e
+```
+---
 
 ### 4. Bài học kinh nghiệm & Thực thi thực tế (Best Practices)
-Trong quá trình triển khai thực tế cho hệ thống Cửa hàng Nhạc cụ, chúng tôi đã rút ra được những kinh nghiệm xương máu sau:
 
-Phân tích Access Patterns cẩn thận trước khi viết code:
-Khác với SQL (nơi bạn tạo bảng trước rồi nghĩ cách query sau), với DynamoDB Single-Table, bạn phải liệt kê 100% các câu hỏi/truy vấn của hệ thống trước, từ đó mới chọn PK, SK, và GSI phù hợp.
+Trong quá trình triển khai thực tế cho hệ thống **Cửa hàng Nhạc cụ**, chúng tôi đã rút ra được những kinh nghiệm cốt lõi sau:
 
-Xử lý tính Đậm đà (Idempotency) ở phía Worker:
-Dù SQS hay EventBridge có cơ chế At-Least-Once Delivery, Lambda Worker xử lý tin nhắn luôn phải kiểm tra trạng thái trong DynamoDB trước khi thực hiện các hành động tính phí hay trừ kho.
+1. **Phân tích Access Patterns cẩn thận trước khi viết code:** 
+   Khác với cơ sở dữ liệu quan hệ (nơi bạn tạo bảng trước rồi mới viết câu lệnh SQL), đối với DynamoDB Single-Table Design, bạn **phải liệt kê 100% các mẫu truy vấn (Access Patterns) của ứng dụng trước**, từ đó mới quyết định cấu trúc Partition Key (PK), Sort Key (SK) và Global Secondary Index (GSI) phù hợp.
 
-Giám sát chặt chẽ qua CloudWatch Metrics:
-Theo dõi sát các chỉ số: ThrottledRequests trên DynamoDB, ApproximateAgeOfOldestMessage và ApproximateNumberOfMessagesVisible trên SQS Queue để phát hiện sớm hiện tượng nghẽn cổ chai.
+2. **Đảm bảo tính Đậm đà (Idempotency) phía Worker:** 
+   SQS và các dịch vụ Event-driven thường cam kết cơ chế phân phối *At-Least-Once Delivery* (tin nhắn có thể bị gửi lặp lại). Vì vậy, Lambda Worker xử lý tin nhắn luôn phải kiểm tra trạng thái đơn hàng trong DynamoDB trước khi thực hiện các thao tác quan trọng như trừ kho hay thanh toán.
+
+3. **Giám sát hệ thống chủ động qua CloudWatch Metrics:** 
+   Thiết lập cảnh báo (Alarm) cho các chỉ số quan trọng: `ThrottledRequests` trên DynamoDB, `ApproximateAgeOfOldestMessage` (độ trễ tin nhắn) và `ApproximateNumberOfMessagesVisible` (số lượng tin nhắn tồn đọng) trên SQS Queue để phát hiện và xử lý sớm các điểm nghẽn hiệu năng.
+
+---
 
 ### Kết luận
-Sự kết hợp giữa Amazon DynamoDB (Single-Table Design) và Amazon SQS đã mang lại một bước tiến vượt bậc về mặt hạ tầng cho dự án Cửa hàng Nhạc cụ:
 
-Thời gian phản hồi API đặt hàng giảm từ 1.2 giây xuống chỉ còn dưới 80ms.
+Sự kết hợp giữa **Amazon DynamoDB (Single-Table Design)** và **Amazon SQS** đã mang lại một bước tiến vượt bậc về mặt hạ tầng cho dự án Cửa hàng Nhạc cụ:
 
-Hệ thống có khả năng chịu tải đột biến tốt mà không gặp tình trạng nghẽn cơ sở dữ liệu.
+* **Tối ưu hiệu năng:** Thời gian phản hồi API đặt hàng giảm từ **1.2 giây xuống chỉ còn dưới 80ms**.
+* **Khả năng chịu tải cao:** Hệ thống dễ dàng xử lý các đợt lưu lượng truy cập đột biến (Flash Sale) mà không gặp tình trạng nghẽn cơ sở dữ liệu.
+* **Độ tin cậy tối đa:** Loại bỏ hoàn toàn nguy cơ mất mát đơn hàng nhờ cơ chế lưu hàng đợi bất đồng bộ và Dead Letter Queue.
 
-Độ tin cậy đạt mức tối đa, hoàn toàn loại bỏ nguy cơ thất lạc đơn hàng của khách hàng.
-
-Nội dung Blog 3 này đã khép lại phần báo cáo về tầng Dữ liệu và Xử lý bất đồng bộ trong chuỗi hoạt động thực tập của tôi tại chương trình FCJ Workshop.
+Nội dung Blog 3 này đã hoàn tất chuỗi bài viết báo cáo về tầng Dữ liệu và Kiến trúc xử lý bất đồng bộ trong chương trình **FCJ Workshop**.
