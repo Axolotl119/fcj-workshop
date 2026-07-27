@@ -1,4 +1,3 @@
-Markdown
 ---
 title: "Event 2: AWS Enterprise Cloud Architectures and Industry Application"
 date: 2026-07-09
