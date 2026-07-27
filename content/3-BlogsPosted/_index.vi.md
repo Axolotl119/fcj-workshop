@@ -157,5 +157,3 @@ Sự kết hợp giữa **Amazon DynamoDB (Single-Table Design)** và **Amazon S
 * **Tối ưu hiệu năng:** Thời gian phản hồi API đặt hàng giảm từ **1.2 giây xuống chỉ còn dưới 80ms**.
 * **Khả năng chịu tải cao:** Hệ thống dễ dàng xử lý các đợt lưu lượng truy cập đột biến (Flash Sale) mà không gặp tình trạng nghẽn cơ sở dữ liệu.
 * **Độ tin cậy tối đa:** Loại bỏ hoàn toàn nguy cơ mất mát đơn hàng nhờ cơ chế lưu hàng đợi bất đồng bộ và Dead Letter Queue.
-
-Nội dung Blog 3 này đã hoàn tất chuỗi bài viết báo cáo về tầng Dữ liệu và Kiến trúc xử lý bất đồng bộ trong chương trình **FCJ Workshop**.
