@@ -71,4 +71,4 @@ pre: " <b> 4.1. </b> "
 
 ---
 
-![Event Photo](/images/4-Event/event1.png)
+![Event Photo](/images/4-EventParticipated/4.1-event1/27-6-2026.png)
