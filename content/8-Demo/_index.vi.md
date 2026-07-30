@@ -12,7 +12,7 @@ pre: " <b> 8. </b> "
 
 Dưới đây là liên kết trải nghiệm thực tế và bản xem trước sản phẩm demo của dự án mà nhóm đã xây dựng và triển khai trong chương trình First Cloud AI Journey (FCAJ).
 
-* **URL Trải nghiệm Live Demo:** [https://music-instrument-store-frontend.vercel.app/](https://music-instrument-store-frontend.vercel.app/)
+* **URL Trải nghiệm Live Demo:** [https://soniccart.dev/](https://music-instrument-store-frontend.vercel.app/)
 * **Nền tảng triển khai Frontend:** Vercel
 * **Hạ tầng Backend & Database:** AWS (Amazon RDS, ElastiCache Redis, S3, API Gateway)
 
@@ -23,7 +23,7 @@ Dưới đây là liên kết trải nghiệm thực tế và bản xem trước
 Bạn có thể tương tác trực tiếp với giao diện cửa hàng nhạc cụ ngay bên dưới:
 
 <iframe 
-  src="https://music-instrument-store-frontend.vercel.app/" 
+  src="https://soniccart.dev/" 
   width="100%" 
   height="700px" 
   style="border: 2px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"

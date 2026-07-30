@@ -12,7 +12,7 @@ pre: " <b> 8. </b> "
 
 Below is the live link and interactive preview of our demo project built and deployed during the First Cloud AI Journey (FCAJ) program.
 
-* **Live Demo URL:** [https://music-instrument-store-frontend.vercel.app/](https://music-instrument-store-frontend.vercel.app/)
+* **Live Demo URL:** [https://soniccart.dev/](https://music-instrument-store-frontend.vercel.app/)
 * **Frontend Hosting Platform:** Vercel
 * **Backend & Database Infrastructure:** AWS (Amazon RDS, ElastiCache Redis, S3, API Gateway)
 
@@ -23,7 +23,7 @@ Below is the live link and interactive preview of our demo project built and dep
 You can directly interact with the Music Instrument Store web application below:
 
 <iframe 
-  src="https://music-instrument-store-frontend.vercel.app/" 
+  src="https://soniccart.dev/" 
   width="100%" 
   height="700px" 
   style="border: 2px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
