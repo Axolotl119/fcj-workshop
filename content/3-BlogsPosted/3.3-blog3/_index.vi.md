@@ -21,7 +21,7 @@ Trong chuỗi bài viết chia sẻ về quá trình xây dựng hạ tầng cho
 
 Dưới đây là sơ đồ tổng quan về luồng dữ liệu và cách các dịch vụ tương tác với nhau trong hệ thống xử lý đơn hàng nhạc cụ:
 
-![Sơ đồ Kiến trúc Hệ thống DynamoDB và SQS](images/blog3-architecture-diagram.png)
+![Sơ đồ Kiến trúc Hệ thống DynamoDB và SQS](https://axolotl119.github.io/fcj-workshop/images/3-BlogsPosted/blog3.png)
 
 *Hình 1: Sơ đồ luồng xử lý bất đồng bộ giữa API Gateway, AWS Lambda, Amazon DynamoDB và Amazon SQS Queue.*
 
