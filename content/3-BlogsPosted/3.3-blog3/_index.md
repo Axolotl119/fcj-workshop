@@ -21,7 +21,7 @@ To fully address these two problems, we adopted **Amazon DynamoDB** (using a *Si
 
 Below is an overview diagram of the data flow and how the services interact within the music instrument order-processing system:
 
-![DynamoDB and SQS System Architecture Diagram](images/blog3.png)
+![DynamoDB and SQS System Architecture Diagram](https://axolotl119.github.io/fcj-workshop/images/3-BlogsPosted/blog3.png)
 
 *Figure 1: Asynchronous processing flow between API Gateway, AWS Lambda, Amazon DynamoDB, and the Amazon SQS Queue.*
 
